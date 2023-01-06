@@ -29,17 +29,18 @@ import java.util.List;
  * Created by Jakub Krhovják on 1/6/23.
  */
 
-@SpringBootTest
+
 class ItemControllerIT extends IntegrationTest {
 
     @MockBean
     private ItemService itemService;
 
 
+    @Test
     void doSomeStaff() throws Exception {
         Mockito.when(itemService.doSomeStaff()).thenReturn("done-test");
 
-        mvc.perform(get("/users"))
+        mvc.perform(get("/items"))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(jsonPath("$", is("done-test")))
 

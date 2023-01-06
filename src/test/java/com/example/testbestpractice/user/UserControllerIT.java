@@ -26,7 +26,6 @@ import java.util.List;
  * Created by Jakub Krhovják on 1/6/23.
  */
 
-@SpringBootTest
 class UserControllerIT extends IntegrationTest {
 
     @MockBean
