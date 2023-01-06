@@ -28,7 +28,6 @@ import java.util.List;
 
 @SpringBootTest
 class UserControllerIT implements ApplicationContextAware {
-
     @MockBean
     private UserService userService;
 
