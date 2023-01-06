@@ -31,7 +31,7 @@ public class TestBestPracticeApplication {
 
     @Bean
     public ItemService itemServiceService() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         return new ItemService();
     }
 

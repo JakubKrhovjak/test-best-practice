@@ -30,16 +30,10 @@ import java.util.List;
  */
 
 @SpringBootTest
-class ItemControllerIT  implements ApplicationContextAware  {
+class ItemControllerIT extends IntegrationTest {
 
     @MockBean
     private ItemService itemService;
-
-    protected MockMvc mvc;
-
-    public void setApplicationContext(@NotNull ApplicationContext applicationContext) {
-        mvc = MockMvcBuilders.webAppContextSetup((WebApplicationContext) applicationContext).build();
-    }
 
 
     void doSomeStaff() throws Exception {

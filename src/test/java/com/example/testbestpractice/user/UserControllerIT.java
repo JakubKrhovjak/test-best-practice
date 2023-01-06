@@ -27,16 +27,10 @@ import java.util.List;
  */
 
 @SpringBootTest
-class UserControllerIT implements ApplicationContextAware {
+class UserControllerIT extends IntegrationTest {
 
     @MockBean
     private UserService userService;
-
-    private MockMvc mvc;
-
-    public void setApplicationContext(@NotNull ApplicationContext applicationContext) {
-        mvc = MockMvcBuilders.webAppContextSetup((WebApplicationContext) applicationContext).build();
-    }
 
     @Test
     void fetchProjects_ok() throws Exception {
