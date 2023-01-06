@@ -9,19 +9,33 @@ import com.example.testbestpractice.IntegrationTest;
 import com.example.testbestpractice.TestUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 
 /**
  * Created by Jakub Krhovják on 1/6/23.
  */
-class UserControllerIT extends IntegrationTest {
+
+@SpringBootTest
+class UserControllerIT {
 
     @MockBean
     private UserService userService;
+
+    protected MockMvc mvc;
+
+    public void setApplicationContext(@NotNull ApplicationContext applicationContext) {
+        mvc = MockMvcBuilders.webAppContextSetup((WebApplicationContext) applicationContext).build();
+    }
 
     @Test
     void fetchProjects_ok() throws Exception {
