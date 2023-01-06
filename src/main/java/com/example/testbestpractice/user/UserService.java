@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
  * Created by Jakub Krhovják on 1/4/23.
  */
 
-@Service
 @RequiredArgsConstructor
 public class UserService {
 

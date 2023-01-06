@@ -1,4 +1,4 @@
-package com.example.testbestpractice;
+package com.example.testbestpractice.item;
 
 import lombok.Data;
 

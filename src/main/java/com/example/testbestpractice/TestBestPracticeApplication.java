@@ -1,5 +1,6 @@
 package com.example.testbestpractice;
 
+import com.example.testbestpractice.item.ItemService;
 import com.example.testbestpractice.user.UserService;
 
 import org.springframework.boot.SpringApplication;
@@ -21,6 +22,17 @@ public class TestBestPracticeApplication {
     @Bean
     public RestTemplate restTemplate(ApiProperties apiProperties) {
         return new RestTemplateBuilder().rootUri(apiProperties.getBaseurl()).build();
+    }
+
+    @Bean
+    public UserService userService(ApiProperties apiProperties, RestTemplate restTemplate) {
+        return new UserService(apiProperties, restTemplate);
+    }
+
+    @Bean
+    public ItemService itemServiceService() throws InterruptedException {
+        Thread.sleep(5000);
+        return new ItemService();
     }
 
  }
