@@ -5,7 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.testbestpractice.IntegrationTest;
 import com.example.testbestpractice.TestUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 

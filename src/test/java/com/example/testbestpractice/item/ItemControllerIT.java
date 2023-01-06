@@ -5,16 +5,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.testbestpractice.IntegrationTest;
-import com.example.testbestpractice.TestUtils;
-import com.example.testbestpractice.user.User;
-import com.example.testbestpractice.user.UserService;
-import com.fasterxml.jackson.core.type.TypeReference;
 
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.BeansException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
@@ -42,10 +36,11 @@ class ItemControllerIT  implements ApplicationContextAware  {
     }
 
 
+    @Test
     void doSomeStaff() throws Exception {
         Mockito.when(itemService.doSomeStaff()).thenReturn("done-test");
 
-        mvc.perform(get("/users"))
+        mvc.perform(get("/items"))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(jsonPath("$", is("done-test")))
 
