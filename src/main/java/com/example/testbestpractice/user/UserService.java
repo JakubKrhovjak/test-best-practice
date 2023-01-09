@@ -1,11 +1,9 @@
 package com.example.testbestpractice.user;
 
 import com.example.testbestpractice.ApiProperties;
-import com.fasterxml.jackson.core.type.TypeReference;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -18,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class UserService {
-
     private final ApiProperties apiProperties;
 
     private final RestTemplate restTemplate;

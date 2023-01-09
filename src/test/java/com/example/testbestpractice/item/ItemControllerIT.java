@@ -6,24 +6,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.example.testbestpractice.IntegrationTest;
-import com.example.testbestpractice.TestUtils;
-import com.example.testbestpractice.user.User;
-import com.example.testbestpractice.user.UserService;
-import com.fasterxml.jackson.core.type.TypeReference;
 
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.BeansException;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 /**
  * Created by Jakub Krhovják on 1/6/23.
@@ -32,7 +20,7 @@ import java.util.List;
 
 class ItemControllerIT extends IntegrationTest {
 
-    @MockBean
+    @Autowired
     private ItemService itemService;
 
 

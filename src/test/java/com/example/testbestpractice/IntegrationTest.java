@@ -12,8 +12,8 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  * Created by Jakub Krhovják on 1/6/23.
  */
-
-@SpringBootTest
+@ActiveProfiles("test")
+@SpringBootTest(classes = {TestBestPracticeApplication.class, TestCustomConfiguration.class})
 public abstract class IntegrationTest implements ApplicationContextAware {
 
     protected MockMvc mvc;
