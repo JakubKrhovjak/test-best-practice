@@ -1,0 +1,7 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+api:
+  base-url: http://localhost:8060/api
+  user-path: /e99ba7e0?count=10&key=123

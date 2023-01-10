@@ -1,7 +1,11 @@
 package com.example.testbestpractice;
 
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.javacrumbs.jsonunit.core.Option;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,6 +33,12 @@ public class TestUtils {
     public <R> R readJsonAsType(final String json, final TypeReference<R> clazz) {
         return Try.of(() -> OB.readValue(json, clazz))
                 .getOrElseThrow(e -> new RuntimeException(e));
+    }
+
+    public static void assertJsonEquals(String result, String expected) {
+        assertThatJson(result)
+                .when(Option.IGNORING_ARRAY_ORDER)
+                .isEqualTo(expected);
     }
 
 }
