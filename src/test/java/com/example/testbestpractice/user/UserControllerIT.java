@@ -57,7 +57,12 @@ class UserControllerIT extends IntegrationTest {
                         .withStatus(200)
                         .withBody(serverResponse)));
 
-        TestUtils.assertJsonEquals( serverResponse, expected);
+        var result = mvc.perform(get("/users"))
+                .andExpect(status().is2xxSuccessful())
+                .andReturn()
+                .getResponse().getContentAsString();
+
+        TestUtils.assertJsonEquals(result, expected);
 
 
 
