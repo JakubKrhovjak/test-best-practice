@@ -42,8 +42,9 @@ class ItemControllerIT extends IntegrationTest {
                 .andExpect(jsonPath("$", is("done")));
 
         var emails = Arrays.asList(greenMail.getReceivedMessages());
-        var receivedMessage = TestUtils.findEmailByRecipient(emails, "noreply@test.com");
+        var receivedMessage = TestUtils.findEmailByRecipient(emails, "jakub.krhovjak@protonmail.com");
 
+        Assertions.assertThat(GreenMailUtil.getAddressList(receivedMessage.getFrom())).isEqualTo("noreply@test.com");
         Assertions.assertThat(GreenMailUtil.getAddressList(receivedMessage.getAllRecipients())).isEqualTo("jakub.krhovjak@protonmail.com");
         Assertions.assertThat(receivedMessage.getSubject()).isEqualTo("subject");
         Assertions.assertThat(GreenMailUtil.getBody(receivedMessage)).contains("email from item service");
