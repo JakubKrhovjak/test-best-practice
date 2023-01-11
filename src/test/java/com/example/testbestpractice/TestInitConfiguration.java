@@ -4,6 +4,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.icegreen.greenmail.util.GreenMail;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -14,6 +15,7 @@ import javax.annotation.PreDestroy;
 
 
 
+@Profile("test")
 public class TestInitConfiguration {
 
     @Autowired
@@ -21,6 +23,7 @@ public class TestInitConfiguration {
 
     @Autowired
     private GreenMail greenMail;
+
 
 
     @PostConstruct
