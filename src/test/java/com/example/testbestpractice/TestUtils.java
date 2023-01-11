@@ -4,13 +4,18 @@ import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.icegreen.greenmail.util.GreenMailUtil;
 
 import net.javacrumbs.jsonunit.core.Option;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Objects;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 
 import io.vavr.control.Try;
 import lombok.experimental.UtilityClass;
@@ -39,6 +44,19 @@ public class TestUtils {
         assertThatJson(result)
                 .when(Option.IGNORING_ARRAY_ORDER)
                 .isEqualTo(expected);
+    }
+
+    public static MimeMessage findEmailByRecipient(List<MimeMessage> emails, String recipient) {
+        return emails.stream()
+                .filter(message -> {
+                    try {
+                        return GreenMailUtil.getAddressList(message.getAllRecipients()).equals(recipient);
+                    } catch (MessagingException e) {
+                        throw new RuntimeException();
+                    }
+                })
+                .findFirst()
+                .orElseThrow();
     }
 
 }

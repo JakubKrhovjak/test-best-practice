@@ -1,6 +1,9 @@
 spring:
   main:
     allow-bean-definition-overriding: true
+  mail:
+    host: 127.0.0.1
+    port: 3025
 
 api:
   base-url: http://localhost:8060/api

@@ -1,3 +1,17 @@
 api:
   base-url: https://api.mockaroo.com/api
   user-path: /e99ba7e0?count=10&key=61758e60
+
+spring:
+  mail:
+    host: "smtp.gmail.com"
+    port: 587
+    username: "jakubkrhovjak@gmail.com"
+    password: "onvdemlshatnjdna"
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
+
