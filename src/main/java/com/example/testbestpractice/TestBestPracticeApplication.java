@@ -26,13 +26,13 @@ public class TestBestPracticeApplication {
 
     @Bean
     public UserService userService(ApiProperties apiProperties, RestTemplate restTemplate) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         return new UserService(apiProperties, restTemplate);
     }
 
     @Bean
     public ItemService itemServiceService() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         return new ItemService();
     }
 
