@@ -39,7 +39,7 @@ class UserControllerIT implements ApplicationContextAware {
     }
 
     @Test
-    void fetchProjects_ok() throws Exception {
+    void fetchUsers() throws Exception {
 
         var responseInJson = TestUtils.readFileAsString("user/usersResponse.json");
         var usersResponse = TestUtils.readJsonAsType(responseInJson, new TypeReference<List<User>>(){});
